@@ -1,0 +1,3 @@
+<apex:page renderAs="pdf">
+    <apex:outputText escape="false" value="{!$CurrentPage.parameters.pdfContent}"/>
+</apex:page>
