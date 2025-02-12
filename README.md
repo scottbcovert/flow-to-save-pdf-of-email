@@ -1,6 +1,10 @@
-# Tython SFDX Project Template
+# FlowToSavePDFofEmail Project
 
-## Setup
+## Overview
+
+This project is meant to serve as a PoC on how to use Flow to send an HTML email and then save the body of the email as a PDF on a record due to limitations related to the native functionality of saving email information via activities.
+
+### Setup
 
 (PRE-REQ: `Node`, `sfdx-cli`, `openssl`, `sed` are required, installation depending on your system!)
 
@@ -8,8 +12,8 @@
 
 2. Run `npm run setup` for Org Authentication - you will need the project auth key from 1Password
 
-## Dev/Build
-### For Single Org or 1st Generation Managed Package Development
+### Dev/Build
+#### For Single Org or 1st Generation Managed Package Development
 
 1. Run `npm start` to spin up a scratch org and run the initial metadata deployment
 
@@ -19,7 +23,7 @@
 
 4. A GitHub Action will deploy to the production/packaging org upon merging a PR into `master`
 
-### For 2nd Generation Managed Package Developmment
+#### For 2nd Generation Managed Package Developmment
 
 1. Run `npm start` to spin up a scratch org and run the initial metadata deployment
 
@@ -27,16 +31,16 @@
 
 3. Run `npm run prep-release` to run through the pre-release flow to ready the package for new version release, including automatic installation to one final test org
 
-## Test
+### Test
 
-### For Single Org or 1st Generation Managed Package Development
+#### For Single Org or 1st Generation Managed Package Development
 
 1. Run `npm start` after pulling down feature branch to push changes to a new scratch org for testing
 
-### For 2nd Generation Managed Package Developmment
+#### For 2nd Generation Managed Package Developmment
 
 1. Run `npm run test-pkg` to install the latest version of the package to a scratch org for testing
-## Description of Files and Directories
+### Description of Files and Directories
 
 `force-app/` is the main src directory. Note `tests/` here is for global testing utils/mocks. Individual component unit test files live in the same folder as said component.
 
@@ -50,7 +54,7 @@
 
 `.vscode/` contains VSCode-specific editor settings and extension recommendations for sharing amongst team members
 
-## Recommended Extensions for VSCode
+### Recommended Extensions for VSCode
 
 [Salesforce Extension pack bundle, incl LWC, Apex, CLI support](https://marketplace.visualstudio.com/items?itemName=salesforce.salesforcedx-vscode)
 
