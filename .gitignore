@@ -9,6 +9,7 @@ server.key
 *auth_url.json
 
 # Salesforce cache
+.sf/
 .sfdx/
 mdapioutput/
 
