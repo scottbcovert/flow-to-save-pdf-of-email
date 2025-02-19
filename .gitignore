@@ -42,6 +42,7 @@ $RECYCLE.BIN/
 # temp disabled to share recommended extensions but omit user-specific settings
 # .vscode/
 .vscode/settings.json
+.vim-force.com/
 
 #Ignore mm.log File
 mm.log

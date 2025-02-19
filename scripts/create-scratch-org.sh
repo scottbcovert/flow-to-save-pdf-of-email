@@ -3,7 +3,7 @@
 # IMPORTANT! Replace with the actual project name!
 PROJECT_NAME=FlowToSavePDFofEmail
 DEVHUB_NAME="${PROJECT_NAME}DevHub"
-#ADMIN_PERMSET_NAME="${PROJECT_NAME}AdminUserPermissions"
+ADMIN_PERMSET_NAME="Flow_to_Save_PDF_and_Send_Email"
 #USER_PERMSET_NAME="${PROJECT_NAME}StandardUserPermissions"
 SFDX_AUTH_URL=sfdx_auth_url.txt
 
@@ -58,16 +58,16 @@ echo "SUCCESS: Source pushed successfully to the scratch org!"
 #fi
 #echo "SUCCESS: Dev artifacts deployed successfully to the scratch org!"
 
-#echo ""
-#echo "Assigning project permission sets to the default scratch org user..."
-#echo ""
-#sfdx force:user:permset:assign -n ${ADMIN_PERMSET_NAME} --json
-#echo ""
-#if [ "$?" = "1" ]
-#then
-#	echo "ERROR: Assigning a project permission set to the default scratch org user failed!"
-#	exit
-#fi
+echo ""
+echo "Assigning project permission sets to the default scratch org user..."
+echo ""
+sf org assign permset -n ${ADMIN_PERMSET_NAME}
+echo ""
+if [ "$?" = "1" ]
+then
+	echo "ERROR: Assigning a project permission set to the default scratch org user failed!"
+	exit
+fi
 #sfdx force:user:permset:assign -n ${USER_PERMSET_NAME} --json
 #echo ""
 #if [ "$?" = "1" ]
