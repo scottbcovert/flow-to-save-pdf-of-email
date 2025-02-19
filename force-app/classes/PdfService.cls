@@ -4,8 +4,9 @@ public with sharing class PdfService {
         PageReference pdfPage = Page.PdfContainer;
         pdfPage.getParameters().put('pdfContent',pdfContent);
         Attachment a = new Attachment(
-            Name = String.valueOf(UUID.randomUUID()),
+            Name = String.valueOf(UUID.randomUUID()) + '.pdf',
             Body = Test.isRunningTest() ? Blob.valueOf(pdfContent) : pdfPage.getContentAsPDF(),
+            ContentType = 'application/pdf',
             ParentId = recordId
         );
         insert a;
