@@ -14,16 +14,15 @@ public with sharing class PdfService_Test {
     @IsTest
     static void testCreatePdfFile() {
         Contact c = [SELECT Id FROM Contact LIMIT 1];
-        String pdfContent = '<strong>Hello, World!</strong>';
 
         Test.startTest();
         PdfService.PdfFileRequest emptyRequest = new PdfService.PdfFileRequest();
         PdfService.execute(new List<PdfService.PdfFileRequest>{
-            new PdfService.PdfFileRequest(c.Id, pdfContent)
+            new PdfService.PdfFileRequest(c.Id, PdfService.TEST_PDF_CONTENT)
         });
         Test.stopTest();
 
         ContentVersion cv = [SELECT VersionData FROM ContentVersion LIMIT 1];
-        Assert.areEqual(Blob.valueOf(pdfContent).toString(), cv.VersionData.toString(), 'File not created properly by PdfService.PdfFileRequest method!');
+        Assert.areEqual(Blob.valueOf(PdfService.TEST_PDF_CONTENT).toString(), cv.VersionData.toString(), 'File not created properly by PdfService.PdfFileRequest method!');
     }
 }
