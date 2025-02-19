@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
-        <name>Create_PDF_Attachment</name>
-        <label>Create PDF Attachment</label>
+        <name>Create_PDF_File</name>
+        <label>Create PDF File</label>
         <locationX>176</locationX>
         <locationY>242</locationY>
         <actionName>PdfService</actionName>
@@ -106,7 +106,7 @@
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Create_PDF_Attachment</targetReference>
+            <targetReference>Create_PDF_File</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>

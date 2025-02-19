@@ -12,18 +12,18 @@ public with sharing class PdfService_Test {
     }
 
     @IsTest
-    static void testCreatePdfAttachment() {
+    static void testCreatePdfFile() {
         Contact c = [SELECT Id FROM Contact LIMIT 1];
         String pdfContent = '<strong>Hello, World!</strong>';
 
         Test.startTest();
-        PdfService.PdfAttachmentRequest emptyRequest = new PdfService.PdfAttachmentRequest();
-        PdfService.execute(new List<PdfService.PdfAttachmentRequest>{
-            new PdfService.PdfAttachmentRequest(c.Id, pdfContent)
+        PdfService.PdfFileRequest emptyRequest = new PdfService.PdfFileRequest();
+        PdfService.execute(new List<PdfService.PdfFileRequest>{
+            new PdfService.PdfFileRequest(c.Id, pdfContent)
         });
         Test.stopTest();
 
-        Attachment a = [SELECT Body FROM Attachment LIMIT 1];
-        Assert.areEqual(Blob.valueOf(pdfContent), a.Body, 'Attachment not created propery by PdfService.PdfAttachmentRequest method!');
+        ContentVersion cv = [SELECT VersionData FROM ContentVersion LIMIT 1];
+        Assert.areEqual(Blob.valueOf(pdfContent).toString(), cv.VersionData.toString(), 'File not created properly by PdfService.PdfFileRequest method!');
     }
 }
